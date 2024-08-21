@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { RegisterUserDto } from './dto/registre-user.dto';
 import { RedisService } from 'src/redis/redis.service';
 import { md5 } from '../utils';
@@ -216,12 +216,40 @@ export class UserService {
     await this.userRepository.save(user);
   }
 
-  async findUsersByPage(pageNo: number, pageSize: number) {
+  async findUsersByPage(
+    pageNo: number,
+    pageSize: number,
+    username?: string,
+    nickName?: string,
+    email?: string,
+  ) {
     // 当前页码减一乘以 pageSize，就是要跳过的记录数，然后再取 pageSize 条。
     const skipCount = (pageNo - 1) * pageSize;
 
+    const condition: Record<string, any> = {};
+
+    if (username) {
+      condition.username = Like(`%${username}%`);
+    }
+    if (nickName) {
+      condition.nickName = Like(`%${nickName}%`);
+    }
+    if (email) {
+      condition.email = Like(`%${email}%`);
+    }
+
     // 我们这次用的是 findAndCount 的 api，它还会查询总记录数。
     const [users, totalCount] = await this.userRepository.findAndCount({
+      select: [
+        'id',
+        'username',
+        'nickName',
+        'email',
+        'phoneNumber',
+        'isFrozen',
+        'headPic',
+        'createTime',
+      ],
       skip: skipCount,
       take: pageSize,
     });
