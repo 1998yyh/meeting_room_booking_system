@@ -23,6 +23,9 @@ dependencies:
   '@nestjs/platform-express':
     specifier: ^10.0.0
     version: 10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
+  '@nestjs/swagger':
+    specifier: ^7.4.0
+    version: 7.4.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)
   '@nestjs/typeorm':
     specifier: ^10.0.2
     version: 10.0.2(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)(typeorm@0.3.20)
@@ -864,6 +867,10 @@ packages:
     resolution: {integrity: sha1-Hj5L0Fwcx6Cy3b2KA/OfbktebP4=}
     engines: {node: '>=8'}
 
+  /@microsoft/tsdoc@0.15.0:
+    resolution: {integrity: sha1-8ppV3xfLbofPurzjP/ahSp+FB20=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz}
+    dev: false
+
   /@nestjs/cli@10.0.0:
     resolution: {integrity: sha1-Oo4AL8Gm3IUgSh3coEFLnTXsQx8=}
     engines: {node: '>= 16'}
@@ -992,6 +999,25 @@ packages:
       reflect-metadata: 0.1.13
     dev: false
 
+  /@nestjs/mapped-types@2.0.5(@nestjs/common@10.0.0)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13):
+    resolution: {integrity: sha1-SF1rROGXecmNBOUr0dK8xwAd8Oo=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/@nestjs/mapped-types/-/mapped-types-2.0.5.tgz}
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      class-transformer: ^0.4.0 || ^0.5.0
+      class-validator: ^0.13.0 || ^0.14.0
+      reflect-metadata: ^0.1.12 || ^0.2.0
+    peerDependenciesMeta:
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      '@nestjs/common': 10.0.0(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      class-transformer: 0.5.1
+      class-validator: 0.14.1
+      reflect-metadata: 0.1.13
+    dev: false
+
   /@nestjs/platform-express@10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
     resolution: {integrity: sha1-IXjynlBhzz+mtZC6S1JYN8Pk7iM=}
     peerDependencies:
@@ -1022,6 +1048,36 @@ packages:
     transitivePeerDependencies:
       - chokidar
     dev: true
+
+  /@nestjs/swagger@7.4.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13):
+    resolution: {integrity: sha1-5h2+/fwdQBEyeiVolpU8dOURyFA=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/@nestjs/swagger/-/swagger-7.4.0.tgz}
+    peerDependencies:
+      '@fastify/static': ^6.0.0 || ^7.0.0
+      '@nestjs/common': ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^9.0.0 || ^10.0.0
+      class-transformer: '*'
+      class-validator: '*'
+      reflect-metadata: ^0.1.12 || ^0.2.0
+    peerDependenciesMeta:
+      '@fastify/static':
+        optional: true
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      '@microsoft/tsdoc': 0.15.0
+      '@nestjs/common': 10.0.0(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/core': 10.0.0(@nestjs/common@10.0.0)(@nestjs/platform-express@10.0.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/mapped-types': 2.0.5(@nestjs/common@10.0.0)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)
+      class-transformer: 0.5.1
+      class-validator: 0.14.1
+      js-yaml: 4.1.0
+      lodash: 4.17.21
+      path-to-regexp: 3.2.0
+      reflect-metadata: 0.1.13
+      swagger-ui-dist: 5.17.14
+    dev: false
 
   /@nestjs/testing@10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)(@nestjs/platform-express@10.0.0):
     resolution: {integrity: sha1-DbspPYZsHZTt9I0tnnxORYX/TAs=}
@@ -1784,8 +1840,7 @@ packages:
     dev: true
 
   /argparse@2.0.1:
-    resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=}
-    dev: true
+    resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/argparse/-/argparse-2.0.1.tgz}
 
   /array-flatten@1.1.1:
     resolution: {integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=}
@@ -3861,11 +3916,10 @@ packages:
     dev: true
 
   /js-yaml@4.1.0:
-    resolution: {integrity: sha1-wftl+PUBeQHN0slRhkuhhFihBgI=}
+    resolution: {integrity: sha1-wftl+PUBeQHN0slRhkuhhFihBgI=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/js-yaml/-/js-yaml-4.1.0.tgz}
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
 
   /jsesc@2.5.2:
     resolution: {integrity: sha1-gFZNLkg9rPbo7yCWUKZ98/DCg6Q=}
@@ -4029,7 +4083,7 @@ packages:
     dev: false
 
   /lodash@4.17.21:
-    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=}
+    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/lodash/-/lodash-4.17.21.tgz}
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha1-P727lbRoOsn8eFER55LlWNSr1QM=}
@@ -4480,7 +4534,7 @@ packages:
     resolution: {integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=}
 
   /path-to-regexp@3.2.0:
-    resolution: {integrity: sha1-+nh37LxJXGAZB1YiIkU8Q8wgSl8=}
+    resolution: {integrity: sha1-+nh37LxJXGAZB1YiIkU8Q8wgSl8=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/path-to-regexp/-/path-to-regexp-3.2.0.tgz}
 
   /path-type@4.0.0:
     resolution: {integrity: sha1-hO0BwKe6OAr+CdkKjBgNzZ0DBDs=}
@@ -5073,6 +5127,10 @@ packages:
     resolution: {integrity: sha1-btpL00SjyUrqN21MwxvHcxEDngk=}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /swagger-ui-dist@5.17.14:
+    resolution: {integrity: sha1-4sIi5b+eFcz4DsS8CLSqrAl5L9Y=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/swagger-ui-dist/-/swagger-ui-dist-5.17.14.tgz}
+    dev: false
 
   /symbol-observable@4.0.0:
     resolution: {integrity: sha1-W0JfGSJ56H8vm5N6yFQNGYSzkgU=}

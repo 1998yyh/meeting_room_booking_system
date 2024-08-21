@@ -8,6 +8,7 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "watchAssets": true,
+    "plugins": ["@nestjs/swagger"],
     "assets": ["**/*.env"]
   }
 }

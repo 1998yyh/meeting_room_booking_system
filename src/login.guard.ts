@@ -1,10 +1,4 @@
-import {
-  CanActivate,
-  ExecutionContext,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { CanActivate, ExecutionContext, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
@@ -33,16 +27,11 @@ export class LoginGuard implements CanActivate {
   @Inject(JwtService)
   private jwtService: JwtService;
 
-  canActivate(
-    context: ExecutionContext,
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const request: Request = context.switchToHttp().getRequest();
 
     // 用 reflector 从目标 controller 和 handler 上拿到 require-login 的 metadata。
-    const requireLogin = this.reflector.getAllAndOverride('require-login', [
-      context.getClass(),
-      context.getHandler(),
-    ]);
+    const requireLogin = this.reflector.getAllAndOverride('require-login', [context.getClass(), context.getHandler()]);
 
     // 如果没有 metadata，就是不需要登录，返回 true 放行。
     if (!requireLogin) {
