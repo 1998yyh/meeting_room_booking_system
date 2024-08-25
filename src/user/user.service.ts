@@ -1,10 +1,4 @@
-import {
-  HttpException,
-  HttpStatus,
-  Inject,
-  Injectable,
-  Logger,
-} from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Like, Repository } from 'typeorm';
@@ -124,6 +118,7 @@ export class UserService {
       id: user.id,
       username: user.username,
       isAdmin: user.isAdmin,
+      email: user.email,
       roles: user.roles.map((item) => item.name),
       permissions: user.roles.reduce((arr, item) => {
         item.permissions.forEach((permission) => {
@@ -136,10 +131,9 @@ export class UserService {
     };
   }
 
-  async updatePassword(userId: number, passwordDto: UpdateUserPasswordDto) {
-    const captcha = await this.redisService.get(
-      `update_password_capcha_${passwordDto.email}`,
-    );
+  async updatePassword(passwordDto: UpdateUserPasswordDto) {
+    console.log('email', `update_password_capcha_${passwordDto.email}`);
+    const captcha = await this.redisService.get(`update_password_captcha_${passwordDto.email}`);
 
     if (!captcha) {
       throw new HttpException('验证码已失效', HttpStatus.BAD_REQUEST);
@@ -150,8 +144,12 @@ export class UserService {
     }
 
     const foundUser = await this.userRepository.findOneBy({
-      id: userId,
+      username: passwordDto.username,
     });
+
+    if (foundUser.email !== passwordDto.email) {
+      throw new HttpException('邮箱不正确', HttpStatus.BAD_REQUEST);
+    }
 
     foundUser.password = md5(passwordDto.password);
 
@@ -165,9 +163,7 @@ export class UserService {
   }
 
   async update(userId: number, updateUserDto: UpdateUserDto) {
-    const captcha = await this.redisService.get(
-      `update_user_captcha_${updateUserDto.email}`,
-    );
+    const captcha = await this.redisService.get(`update_user_captcha_${updateUserDto.email}`);
 
     if (!captcha) {
       throw new HttpException('验证码已失效', HttpStatus.BAD_REQUEST);
@@ -217,13 +213,7 @@ export class UserService {
     await this.userRepository.save(user);
   }
 
-  async findUsersByPage(
-    pageNo: number,
-    pageSize: number,
-    username?: string,
-    nickName?: string,
-    email?: string,
-  ) {
+  async findUsersByPage(pageNo: number, pageSize: number, username?: string, nickName?: string, email?: string) {
     // 当前页码减一乘以 pageSize，就是要跳过的记录数，然后再取 pageSize 条。
     const skipCount = (pageNo - 1) * pageSize;
 
@@ -241,16 +231,7 @@ export class UserService {
 
     // 我们这次用的是 findAndCount 的 api，它还会查询总记录数。
     const [users, totalCount] = await this.userRepository.findAndCount({
-      select: [
-        'id',
-        'username',
-        'nickName',
-        'email',
-        'phoneNumber',
-        'isFrozen',
-        'headPic',
-        'createTime',
-      ],
+      select: ['id', 'username', 'nickName', 'email', 'phoneNumber', 'isFrozen', 'headPic', 'createTime'],
       skip: skipCount,
       take: pageSize,
     });

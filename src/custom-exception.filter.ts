@@ -9,10 +9,19 @@ export class CustomExceptionFilter implements ExceptionFilter {
 
     const res = exception.getResponse() as { message: string[] };
 
+    let message = exception.message;
+    if (typeof res?.message === 'string') {
+      message = res?.message;
+    }
+
+    if (Array.isArray(res?.message)) {
+      message = res.message[0];
+    }
+
     response
       .json({
         code: exception.getStatus(),
-        message: res?.message || exception.message,
+        message,
         data: null,
       })
       .end();

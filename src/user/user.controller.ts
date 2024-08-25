@@ -24,7 +24,6 @@ import { generateParseIntPipe } from 'src/utils';
 import { ApiBearerAuth, ApiBody, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoginUserVo } from './vo/login-user.vo';
 import { RefreshTokenVo } from './vo/refresh-token.vo';
-import { UserListVo } from './vo/user-list.vo';
 
 interface captchaParams {
   prefix: string;
@@ -69,6 +68,7 @@ export class UserController {
         userId: vo.userInfo.id,
         username: vo.userInfo.username,
         roles: vo.userInfo.roles,
+        email: vo.userInfo.email,
         permissions: vo.userInfo.permissions,
       },
       {
@@ -117,6 +117,7 @@ export class UserController {
           userId: user.id,
           username: user.username,
           roles: user.roles,
+          email: user.email,
           permissions: user.permissions,
         },
         {
@@ -153,6 +154,7 @@ export class UserController {
           userId: user.id,
           username: user.username,
           roles: user.roles,
+          email: user.email,
           permissions: user.permissions,
         },
         {
@@ -214,7 +216,9 @@ export class UserController {
   }
 
   @Get('update/captcha')
-  async updateCaptcha(@Query('address') address: string) {
+  @RequireLogin()
+  async updateCaptcha(@UserInfo('email') address: string) {
+    console.log('email', address);
     return await this.sendCaptcha(address, {
       prefix: 'update_password_captcha_',
       html: '更改用户信息验证码',
@@ -283,9 +287,8 @@ export class UserController {
   }
 
   @Post(['update_password', 'admin/update_password'])
-  @RequireLogin()
-  async updatePassword(@UserInfo('userId') userId: number, @Body() passwordDto: UpdateUserPasswordDto) {
-    return await this.userService.updatePassword(userId, passwordDto);
+  async updatePassword(@Body() passwordDto: UpdateUserPasswordDto) {
+    return await this.userService.updatePassword(passwordDto);
   }
 
   @Post(['update', 'admin/update'])
