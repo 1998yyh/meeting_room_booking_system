@@ -180,6 +180,7 @@ export class UserService {
     if (updateUserDto.nickName) {
       foundUser.nickName = updateUserDto.nickName;
     }
+
     if (updateUserDto.headPic) {
       foundUser.headPic = updateUserDto.headPic;
     }

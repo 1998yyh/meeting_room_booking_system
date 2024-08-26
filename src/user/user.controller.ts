@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   DefaultValuePipe,
@@ -8,6 +9,8 @@ import {
   Post,
   Query,
   UnauthorizedException,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { RegisterUserDto } from './dto/registre-user.dto';
@@ -24,6 +27,9 @@ import { generateParseIntPipe } from 'src/utils';
 import { ApiBearerAuth, ApiBody, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoginUserVo } from './vo/login-user.vo';
 import { RefreshTokenVo } from './vo/refresh-token.vo';
+import { FileInterceptor } from '@nestjs/platform-express';
+import * as path from 'path';
+import { storage } from 'src/my-file-storage';
 
 interface captchaParams {
   prefix: string;
@@ -220,7 +226,7 @@ export class UserController {
   async updateCaptcha(@UserInfo('email') address: string) {
     console.log('email', address);
     return await this.sendCaptcha(address, {
-      prefix: 'update_password_captcha_',
+      prefix: 'update_user_captcha_',
       html: '更改用户信息验证码',
     });
   }
@@ -295,5 +301,28 @@ export class UserController {
   @RequireLogin()
   async update(@UserInfo('userId') userId: number, @Body() updateUserDto: UpdateUserDto) {
     return await this.userService.update(userId, updateUserDto);
+  }
+
+  @Post('upload')
+  @UseInterceptors(
+    FileInterceptor('file', {
+      dest: 'uploads',
+      limits: {
+        fileSize: 1024 * 1024 * 3,
+      },
+      storage: storage,
+      fileFilter(req, file, callback) {
+        const extname = path.extname(file.originalname);
+        if (['.png', '.jpg', '.gif'].includes(extname)) {
+          callback(null, true);
+        } else {
+          callback(new BadRequestException('只能上传图片'), false);
+        }
+      },
+    }),
+  )
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    console.log('filefilefilefile', file);
+    return file.path;
   }
 }
