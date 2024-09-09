@@ -116,11 +116,7 @@ export class UserController {
     try {
       const data = this.jwtService.verify(refreshToken);
 
-      console.log(data);
-
       const user = await this.userService.findUserById(data.userId, false);
-
-      console.log('user', user);
 
       const access_token = this.jwtService.sign(
         {
