@@ -116,7 +116,11 @@ export class UserController {
     try {
       const data = this.jwtService.verify(refreshToken);
 
+      console.log(data);
+
       const user = await this.userService.findUserById(data.userId, false);
+
+      console.log('user', user);
 
       const access_token = this.jwtService.sign(
         {
@@ -144,6 +148,7 @@ export class UserController {
 
       vo.access_token = access_token;
       vo.refresh_token = refresh_token;
+
       return vo;
     } catch (e) {
       throw new UnauthorizedException('token 已失效，请重新登录');
@@ -313,7 +318,7 @@ export class UserController {
       storage: storage,
       fileFilter(req, file, callback) {
         const extname = path.extname(file.originalname);
-        if (['.png', '.jpg', '.gif'].includes(extname)) {
+        if (['.png', '.jpg', '.gif', '.jpeg'].includes(extname)) {
           callback(null, true);
         } else {
           callback(new BadRequestException('只能上传图片'), false);

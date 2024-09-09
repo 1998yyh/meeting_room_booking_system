@@ -235,6 +235,7 @@ export class UserService {
       select: ['id', 'username', 'nickName', 'email', 'phoneNumber', 'isFrozen', 'headPic', 'createTime'],
       skip: skipCount,
       take: pageSize,
+      where: condition,
     });
 
     const vo = new UserListVo();
