@@ -21,6 +21,8 @@ export class MeetingRoomService {
 
     const condition: Record<string, any> = {};
 
+    console.log('pageNo', pageNo, pageSize, name, equipment, capacity);
+
     if (name) {
       condition.name = Like(`%${name}%`);
     }

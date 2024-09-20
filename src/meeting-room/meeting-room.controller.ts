@@ -8,11 +8,6 @@ import { UpdateMeetingRoomDto } from './dto/update-meeting-room.dto';
 export class MeetingRoomController {
   constructor(private readonly meetingRoomService: MeetingRoomService) {}
 
-  @Get(':id')
-  async find(@Param('id') id: number) {
-    return await this.meetingRoomService.findById(id);
-  }
-
   @Get('list')
   async list(
     @Query('pageNo', new DefaultValuePipe(1), generateParseIntPipe('pageNo')) pageNo: number,
@@ -34,8 +29,13 @@ export class MeetingRoomController {
     return await this.meetingRoomService.update(meetingRoomDto);
   }
 
-  @Post(':id')
+  @Post('/delete/:id')
   async delete(@Param('id') id: number) {
     return await this.meetingRoomService.delete(id);
+  }
+
+  @Get('/room/:id')
+  async find(@Param('id') id: number) {
+    return await this.meetingRoomService.findById(id);
   }
 }
