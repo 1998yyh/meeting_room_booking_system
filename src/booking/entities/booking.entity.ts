@@ -1,8 +1,16 @@
-import { IS_NOT_EMPTY } from 'class-validator';
 import { MeetingRoom } from 'src/meeting-room/entities/meeting-room.entity';
 import { User } from 'src/user/entities/user.entity';
-import { Column, CreateDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
+@Entity()
 export class Booking {
   @PrimaryGeneratedColumn()
   id: number;
@@ -25,11 +33,17 @@ export class Booking {
   status: string;
 
   @Column({
-    length: 20,
+    length: 100,
     comment: '备注',
     default: '',
   })
   note: string;
+
+  @ManyToOne(() => User)
+  user: User;
+
+  @ManyToOne(() => MeetingRoom)
+  room: MeetingRoom;
 
   @CreateDateColumn({
     comment: '创建时间',
@@ -40,10 +54,4 @@ export class Booking {
     comment: '更新时间',
   })
   updateTime: Date;
-
-  @ManyToOne(() => User)
-  user: User;
-
-  @ManyToOne(() => MeetingRoom)
-  room: MeetingRoom;
 }

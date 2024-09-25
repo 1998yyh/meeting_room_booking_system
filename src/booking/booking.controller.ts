@@ -1,34 +1,59 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, DefaultValuePipe } from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
-import { UpdateBookingDto } from './dto/update-booking.dto';
+import { generateParseIntPipe } from 'src/utils';
+import { RequireLogin, UserInfo } from 'src/custom.decorator';
 
 @Controller('booking')
 export class BookingController {
   constructor(private readonly bookingService: BookingService) {}
 
-  @Post()
-  create(@Body() createBookingDto: CreateBookingDto) {
-    return this.bookingService.create(createBookingDto);
+  @Get('list')
+  async list(
+    @Query('pageNo', new DefaultValuePipe(1), generateParseIntPipe('pageNo')) pageNo: number,
+    @Query('pageSize', new DefaultValuePipe(10), generateParseIntPipe('pageSize')) pageSize: number,
+    @Query('username') username: string,
+    @Query('meetingRoomName') meetingRoomName: string,
+    @Query('meetingRoomPosition') meetingRoomPosition: string,
+    @Query('bookingTimeRangeStart') bookingTimeRangeStart: number,
+    @Query('bookingTimeRangeEnd') bookingTimeRangeEnd: number,
+  ) {
+    return this.bookingService.find(
+      pageNo,
+      pageSize,
+      username,
+      meetingRoomName,
+      meetingRoomPosition,
+      bookingTimeRangeStart,
+      bookingTimeRangeEnd,
+    );
   }
 
-  @Get()
-  findAll() {
-    return this.bookingService.findAll();
+  @Post('add')
+  @RequireLogin()
+  async add(@Body() booking: CreateBookingDto, @UserInfo('userId') userId: number) {
+    await this.bookingService.add(booking, userId);
+    return 'success';
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.bookingService.findOne(+id);
+  @Get('apply/:id')
+  async apply(@Param('id') id: number) {
+    return this.bookingService.apply(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBookingDto: UpdateBookingDto) {
-    return this.bookingService.update(+id, updateBookingDto);
+  @Get('reject/:id')
+  async reject(@Param('id') id: number) {
+    return this.bookingService.reject(id);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.bookingService.remove(+id);
+  @Get('unbind/:id')
+  async unbind(@Param('id') id: number) {
+    return this.bookingService.unbind(id);
+  }
+
+  @Get('urge/:id')
+  async urge(@Param('id') id: number) {
+    await this.bookingService.urge(id);
+    return 'success';
   }
 }
