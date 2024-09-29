@@ -1,5 +1,13 @@
 version: '3.8'
 services:
+  fe-app:
+    image: crpi-0822sqe9pdavunw3.cn-hangzhou.personal.cr.aliyuncs.com/yanghao_node/yang:0.1
+    ports:
+      - 80:80
+    depends_on:
+      - nest-app
+    networks:
+      - common-network
   nest-app:
     build:
       context: ./
