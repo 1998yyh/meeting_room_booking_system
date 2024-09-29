@@ -38,6 +38,9 @@ dependencies:
   class-validator:
     specifier: ^0.14.1
     version: 0.14.1
+  dotenv:
+    specifier: ^16.4.5
+    version: 16.4.5
   mysql2:
     specifier: ^3.11.0
     version: 3.11.0
@@ -1151,7 +1154,7 @@ packages:
       - encoding
 
   /@pkgjs/parseargs@0.11.0:
-    resolution: {integrity: sha1-p36nQvqyV3UUVDTrHSMoz1ATrDM=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/@pkgjs/parseargs/-/parseargs-0.11.0.tgz}
+    resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@pkgjs/parseargs/-/parseargs-0.11.0.tgz}
     engines: {node: '>=14'}
     requiresBuild: true
     dev: false
@@ -1371,7 +1374,7 @@ packages:
     resolution: {integrity: sha1-HvMC4Bz30rWg+lJnkMkSO/HQZpA=}
 
   /@types/multer@1.4.12:
-    resolution: {integrity: sha1-2me9DICfOmP+CXxFjA1K8f6lCrc=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/@types/multer/-/multer-1.4.12.tgz}
+    resolution: {integrity: sha1-2me9DICfOmP+CXxFjA1K8f6lCrc=}
     dependencies:
       '@types/express': 4.17.17
     dev: false
@@ -1702,7 +1705,7 @@ packages:
     dev: true
 
   /acorn-import-attributes@1.9.5(acorn@8.12.1):
-    resolution: {integrity: sha1-frFVexugXvGLXtDsZ1kb+rBGiO8=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/acorn-import-attributes/-/acorn-import-attributes-1.9.5.tgz}
+    resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/acorn-import-attributes/-/acorn-import-attributes-1.9.5.tgz}
     peerDependencies:
       acorn: ^8
     dependencies:
@@ -2497,7 +2500,7 @@ packages:
     dev: false
 
   /dotenv@16.4.5:
-    resolution: {integrity: sha1-zdOztgTLMn4oa0di4TUC9xfLCZ8=}
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/dotenv/-/dotenv-16.4.5.tgz}
     engines: {node: '>=12'}
     dev: false
 
@@ -3016,7 +3019,7 @@ packages:
     dev: true
 
   /fsevents@2.3.3:
-    resolution: {integrity: sha1-ysZAd4XQNnWipeGlMFxpezR9kNY=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/fsevents/-/fsevents-2.3.3.tgz}
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/fsevents/-/fsevents-2.3.3.tgz}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -5640,7 +5643,7 @@ packages:
     dev: true
 
   /webpack@5.93.0:
-    resolution: {integrity: sha1-LonscDVXm9+6l2DSbGOsXDRipeU=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/webpack/-/webpack-5.93.0.tgz}
+    resolution: {integrity: sha512-Y0m5oEY1LRuwly578VqluorkXbvXKh7U3rLoQCEO04M97ScRr44afGVkI0FQFsXzysk5OgFAxjZAb9rsGQVihA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/webpack/-/webpack-5.93.0.tgz}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
