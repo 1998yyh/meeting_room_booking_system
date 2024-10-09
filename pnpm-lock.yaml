@@ -41,6 +41,9 @@ dependencies:
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
+  minio:
+    specifier: ^8.0.1
+    version: 8.0.1
   mysql2:
     specifier: ^3.11.0
     version: 3.11.0
@@ -1689,6 +1692,12 @@ packages:
     resolution: {integrity: sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=}
     dev: true
 
+  /@zxing/text-encoding@0.9.0:
+    resolution: {integrity: sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@zxing/text-encoding/-/text-encoding-0.9.0.tgz}
+    requiresBuild: true
+    dev: false
+    optional: true
+
   /accepts@1.3.8:
     resolution: {integrity: sha1-C/C+EltnAUrcsLCSHmLbe//hay4=}
     engines: {node: '>= 0.6'}
@@ -1860,9 +1869,20 @@ packages:
     resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=}
     dev: true
 
+  /async@3.2.6:
+    resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/async/-/async-3.2.6.tgz}
+    dev: false
+
   /asynckit@0.4.0:
     resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=}
     dev: true
+
+  /available-typed-arrays@1.0.7:
+    resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/available-typed-arrays/-/available-typed-arrays-1.0.7.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      possible-typed-array-names: 1.0.0
+    dev: false
 
   /aws-ssl-profiles@1.1.1:
     resolution: {integrity: sha1-Ie+K1311OSf2wBsUTF70zE8VDNw=}
@@ -1963,6 +1983,12 @@ packages:
       readable-stream: 3.6.2
     dev: true
 
+  /block-stream2@2.1.0:
+    resolution: {integrity: sha512-suhjmLI57Ewpmq00qaygS8UgEq2ly2PCItenIyhMqVjo4t4pGzqMvfgJuX8iWTeSDdfSSqS6j38fL4ToNL7Pfg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/block-stream2/-/block-stream2-2.1.0.tgz}
+    dependencies:
+      readable-stream: 3.6.2
+    dev: false
+
   /body-parser@1.20.1:
     resolution: {integrity: sha1-sYEqiRLBlc03Gj7l5m+qIzilxmg=}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -2020,6 +2046,10 @@ packages:
       fill-range: 7.1.1
     dev: true
 
+  /browser-or-node@2.1.1:
+    resolution: {integrity: sha512-8CVjaLJGuSKMVTxJ2DpBl5XnlNDiT4cQFeuCJJrvJmts9YrTZDizTX7PjC2s6W4x+MBGZeEY6dGMrF04/6Hgqg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/browser-or-node/-/browser-or-node-2.1.1.tgz}
+    dev: false
+
   /browserslist@4.23.3:
     resolution: {integrity: sha1-3rsCnTyT68l/+8jZy7A0A+InyAA=}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -2043,6 +2073,11 @@ packages:
     dependencies:
       node-int64: 0.4.0
     dev: true
+
+  /buffer-crc32@1.0.0:
+    resolution: {integrity: sha512-Db1SbgBS/fg/392AblrMJk97KggmvYhr4pB5ZIMTWtaivCPMWLkmb7m21cJvpvgK+J3nsU2CmmixNBZx4vFj/w==, tarball: https://reg.yingzhongtong.com/repository/npm_public/buffer-crc32/-/buffer-crc32-1.0.0.tgz}
+    engines: {node: '>=8.0.0'}
+    dev: false
 
   /buffer-equal-constant-time@1.0.1:
     resolution: {integrity: sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=}
@@ -2409,6 +2444,11 @@ packages:
     dependencies:
       ms: 2.1.2
 
+  /decode-uri-component@0.2.2:
+    resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/decode-uri-component/-/decode-uri-component-0.2.2.tgz}
+    engines: {node: '>=0.10'}
+    dev: false
+
   /dedent@1.5.3:
     resolution: {integrity: sha1-ma7hnrm65VpnMncXtuhI0L93flo=}
     peerDependencies:
@@ -2740,6 +2780,10 @@ packages:
     resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=}
     engines: {node: '>= 0.6'}
 
+  /eventemitter3@5.0.1:
+    resolution: {integrity: sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/eventemitter3/-/eventemitter3-5.0.1.tgz}
+    dev: false
+
   /events@3.3.0:
     resolution: {integrity: sha1-Mala0Kkk4tLEGagTrrLE6HjqdAA=}
     engines: {node: '>=0.8.x'}
@@ -2868,6 +2912,13 @@ packages:
   /fast-safe-stringify@2.1.1:
     resolution: {integrity: sha1-xAaoO25w2eNc47MKgRQd8wrrqIQ=}
 
+  /fast-xml-parser@4.5.0:
+    resolution: {integrity: sha512-/PlTQCI96+fZMAOLMZK4CWG1ItCbfZ/0jx7UIJFChPNrx7tcEgerUgWbeieCM9MfHInUDyK8DWYZ+YrywDJuTg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/fast-xml-parser/-/fast-xml-parser-4.5.0.tgz}
+    hasBin: true
+    dependencies:
+      strnum: 1.0.5
+    dev: false
+
   /fastq@1.17.1:
     resolution: {integrity: sha1-KlI/B6TnsegaQrkbi/IlQQd1O0c=}
     dependencies:
@@ -2900,6 +2951,11 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
+
+  /filter-obj@1.1.0:
+    resolution: {integrity: sha512-8rXg1ZnX7xzy2NGDVkBVaAy+lSlPNwad13BtgSlLuxfIslyt5Vg64U7tFcCt4WS1R0hvtnQybT/IyCkGZ3DpXQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/filter-obj/-/filter-obj-1.1.0.tgz}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /finalhandler@1.2.0:
     resolution: {integrity: sha1-fSP+VzGyB7RkDk/NAK7B+SB6ezI=}
@@ -2943,6 +2999,12 @@ packages:
   /flatted@3.3.1:
     resolution: {integrity: sha1-IdtHBymmc01JlwAvQ5yzCJh/Vno=}
     dev: true
+
+  /for-each@0.3.3:
+    resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/for-each/-/for-each-0.3.3.tgz}
+    dependencies:
+      is-callable: 1.2.7
+    dev: false
 
   /foreground-child@3.3.0:
     resolution: {integrity: sha1-CshkTAbkMUOfhWHbjs8pp7VRnHc=}
@@ -3196,6 +3258,13 @@ packages:
     resolution: {integrity: sha1-u3ssQ0klHc6HsSX3vfh0qnyLOfg=}
     engines: {node: '>= 0.4'}
 
+  /has-tostringtag@1.0.2:
+    resolution: {integrity: sha512-NqADB8VjPFLM2V0VvHUewwwsw0ZWBaIdgo+ieHtK3hasLz4qeCRjYcqfB6AQrBggRKppKF8L52/VqdVsO47Dlw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/has-tostringtag/-/has-tostringtag-1.0.2.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-symbols: 1.0.3
+    dev: false
+
   /hasown@2.0.2:
     resolution: {integrity: sha1-AD6vkb563DcuhOxZ3DclLO24AAM=}
     engines: {node: '>= 0.4'}
@@ -3340,6 +3409,19 @@ packages:
     resolution: {integrity: sha1-v/OFQ+64mEglB5/zoqjmy9RngbM=}
     engines: {node: '>= 0.10'}
 
+  /ipaddr.js@2.2.0:
+    resolution: {integrity: sha512-Ag3wB2o37wslZS19hZqorUnrnzSkpOVy+IiiDEiTqNubEYpYuHWIf6K4psgN2ZWKExS4xhVCrRVfb/wfW8fWJA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/ipaddr.js/-/ipaddr.js-2.2.0.tgz}
+    engines: {node: '>= 10'}
+    dev: false
+
+  /is-arguments@1.1.1:
+    resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/is-arguments/-/is-arguments-1.1.1.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.7
+      has-tostringtag: 1.0.2
+    dev: false
+
   /is-arrayish@0.2.1:
     resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=}
     dev: true
@@ -3350,6 +3432,11 @@ packages:
     dependencies:
       binary-extensions: 2.3.0
     dev: true
+
+  /is-callable@1.2.7:
+    resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/is-callable/-/is-callable-1.2.7.tgz}
+    engines: {node: '>= 0.4'}
+    dev: false
 
   /is-core-module@2.15.0:
     resolution: {integrity: sha1-cccuxUQqzn52swbp1I2zYfImmeo=}
@@ -3371,6 +3458,13 @@ packages:
     resolution: {integrity: sha1-fRQK3DiarzARqPKipM+m+q3/sRg=}
     engines: {node: '>=6'}
     dev: true
+
+  /is-generator-function@1.0.10:
+    resolution: {integrity: sha512-jsEjy9l3yiXEQ+PsXdmBwEPcOxaXWLspKdplFUVI9vq1iZgIekeC0L167qeu86czQaxed3q/Uzuw0swL0irL8A==, tarball: https://reg.yingzhongtong.com/repository/npm_public/is-generator-function/-/is-generator-function-1.0.10.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-tostringtag: 1.0.2
+    dev: false
 
   /is-glob@4.0.3:
     resolution: {integrity: sha1-ZPYeQsu7LuwgcanawLKLoeZdUIQ=}
@@ -3402,6 +3496,13 @@ packages:
     resolution: {integrity: sha1-+sHj1TuXrVqdCunO8jifWBClwHc=}
     engines: {node: '>=8'}
     dev: true
+
+  /is-typed-array@1.1.13:
+    resolution: {integrity: sha512-uZ25/bUAlUY5fR4OKT4rZQEBrzQWYV9ZJYGGsUmEJ6thodVJ1HX64ePQ6Z0qPWP+m+Uq6e9UugrE38jeYsDSMw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/is-typed-array/-/is-typed-array-1.1.13.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      which-typed-array: 1.1.15
+    dev: false
 
   /is-unicode-supported@0.1.0:
     resolution: {integrity: sha1-PybHaoCVk7Ur+i7LVxDtJ3m1Iqc=}
@@ -4230,6 +4331,26 @@ packages:
   /minimist@1.2.8:
     resolution: {integrity: sha1-waRk52kzAuCCoHXO4MBXdBrEdyw=}
 
+  /minio@8.0.1:
+    resolution: {integrity: sha512-FzDO6yGnqLtm8sp3mXafWtiRUOslJSSg/aI0v9YbN5vjw5KLoODKAROCyi766NIvTSxcfHBrbhCSGk1A+MOzDg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/minio/-/minio-8.0.1.tgz}
+    engines: {node: ^16 || ^18 || >=20}
+    dependencies:
+      async: 3.2.6
+      block-stream2: 2.1.0
+      browser-or-node: 2.1.1
+      buffer-crc32: 1.0.0
+      eventemitter3: 5.0.1
+      fast-xml-parser: 4.5.0
+      ipaddr.js: 2.2.0
+      lodash: 4.17.21
+      mime-types: 2.1.35
+      query-string: 7.1.3
+      stream-json: 1.8.0
+      through2: 4.0.2
+      web-encoding: 1.1.5
+      xml2js: 0.5.0
+    dev: false
+
   /minipass@4.2.8:
     resolution: {integrity: sha1-8AEPZDk+z8HRzLX1gryvRfSOGjo=}
     engines: {node: '>=8'}
@@ -4569,6 +4690,11 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /possible-typed-array-names@1.0.0:
+    resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==, tarball: https://reg.yingzhongtong.com/repository/npm_public/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz}
+    engines: {node: '>= 0.4'}
+    dev: false
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha1-3rxkidem5rDnYRiIzsiAM30xY5Y=}
     engines: {node: '>= 0.8.0'}
@@ -4643,6 +4769,16 @@ packages:
       side-channel: 1.0.6
     dev: true
 
+  /query-string@7.1.3:
+    resolution: {integrity: sha512-hh2WYhq4fi8+b+/2Kg9CEge4fDPvHS534aOOvOZeQ3+Vf2mCFsaFBYj0i+iXcAq6I9Vzp5fjMFBlONvayDC1qg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/query-string/-/query-string-7.1.3.tgz}
+    engines: {node: '>=6'}
+    dependencies:
+      decode-uri-component: 0.2.2
+      filter-obj: 1.1.0
+      split-on-first: 1.1.0
+      strict-uri-encode: 2.0.0
+    dev: false
+
   /queue-microtask@1.2.3:
     resolution: {integrity: sha1-SSkii7xyTfrEPg77BYyve2z7YkM=}
     dev: true
@@ -4697,7 +4833,6 @@ packages:
       inherits: 2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
-    dev: true
 
   /readdirp@3.6.0:
     resolution: {integrity: sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=}
@@ -4829,6 +4964,10 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=}
+
+  /sax@1.4.1:
+    resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/sax/-/sax-1.4.1.tgz}
+    dev: false
 
   /schema-utils@3.3.0:
     resolution: {integrity: sha1-9QqIh3w8AWUqFbYirp6Xld96YP4=}
@@ -4983,6 +5122,11 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
+  /split-on-first@1.1.0:
+    resolution: {integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/split-on-first/-/split-on-first-1.1.0.tgz}
+    engines: {node: '>=6'}
+    dev: false
+
   /sprintf-js@1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
@@ -5003,9 +5147,24 @@ packages:
     resolution: {integrity: sha1-VcsADM8dSHKL0jxoWgY5mM8aG2M=}
     engines: {node: '>= 0.8'}
 
+  /stream-chain@2.2.5:
+    resolution: {integrity: sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/stream-chain/-/stream-chain-2.2.5.tgz}
+    dev: false
+
+  /stream-json@1.8.0:
+    resolution: {integrity: sha512-HZfXngYHUAr1exT4fxlbc1IOce1RYxp2ldeaf97LYCOPSoOqY/1Psp7iGvpb+6JIOgkra9zDYnPX01hGAHzEPw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/stream-json/-/stream-json-1.8.0.tgz}
+    dependencies:
+      stream-chain: 2.2.5
+    dev: false
+
   /streamsearch@1.1.0:
     resolution: {integrity: sha1-QE3R4iR8qUr1VOhBqO8OqiONp2Q=}
     engines: {node: '>=10.0.0'}
+
+  /strict-uri-encode@2.0.0:
+    resolution: {integrity: sha512-QwiXZgpRcKkhTj2Scnn++4PKtWsH0kpzZ62L2R6c/LUVYv7hVnZqcg2+sMuT6R7Jusu1vviK/MFsu6kNJfWlEQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz}
+    engines: {node: '>=4'}
+    dev: false
 
   /string-length@4.0.2:
     resolution: {integrity: sha1-qKjce9XBqCubPIuH4SX2aHG25Xo=}
@@ -5041,7 +5200,6 @@ packages:
     resolution: {integrity: sha1-QvEUWUpGzxqOMLCoT1bHjD7awh4=}
     dependencies:
       safe-buffer: 5.2.1
-    dev: true
 
   /strip-ansi@6.0.1:
     resolution: {integrity: sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=}
@@ -5075,6 +5233,10 @@ packages:
     resolution: {integrity: sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=}
     engines: {node: '>=8'}
     dev: true
+
+  /strnum@1.0.5:
+    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/strnum/-/strnum-1.0.5.tgz}
+    dev: false
 
   /superagent@8.1.2:
     resolution: {integrity: sha1-A8t9o+yLMkcsnSD2wqV8fzdl8ws=}
@@ -5235,6 +5397,12 @@ packages:
     resolution: {integrity: sha1-iTLmhqQGYDigFt2eLKRq3Zg4qV8=}
     dependencies:
       any-promise: 1.3.0
+    dev: false
+
+  /through2@4.0.2:
+    resolution: {integrity: sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/through2/-/through2-4.0.2.tgz}
+    dependencies:
+      readable-stream: 3.6.2
     dev: false
 
   /through@2.3.8:
@@ -5540,6 +5708,16 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
 
+  /util@0.12.5:
+    resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/util/-/util-0.12.5.tgz}
+    dependencies:
+      inherits: 2.0.4
+      is-arguments: 1.1.1
+      is-generator-function: 1.0.10
+      is-typed-array: 1.1.13
+      which-typed-array: 1.1.15
+    dev: false
+
   /utils-merge@1.0.1:
     resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
     engines: {node: '>= 0.4.0'}
@@ -5588,6 +5766,14 @@ packages:
     dependencies:
       defaults: 1.0.4
     dev: true
+
+  /web-encoding@1.1.5:
+    resolution: {integrity: sha512-HYLeVCdJ0+lBYV2FvNZmv3HJ2Nt0QYXqZojk3d9FJOLkwnuhzM9tmamh8d7HPM8QqjKH8DeHkFTx+CFlWpZZDA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/web-encoding/-/web-encoding-1.1.5.tgz}
+    dependencies:
+      util: 0.12.5
+    optionalDependencies:
+      '@zxing/text-encoding': 0.9.0
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
@@ -5688,6 +5874,17 @@ packages:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
 
+  /which-typed-array@1.1.15:
+    resolution: {integrity: sha512-oV0jmFtUky6CXfkqehVvBP/LSWJ2sy4vWMioiENyJLePrBO/yKyV9OyJySfAKosh+RYkIl5zJCNZ8/4JncrpdA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/which-typed-array/-/which-typed-array-1.1.15.tgz}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      available-typed-arrays: 1.0.7
+      call-bind: 1.0.7
+      for-each: 0.3.3
+      gopd: 1.0.1
+      has-tostringtag: 1.0.2
+    dev: false
+
   /which@2.0.2:
     resolution: {integrity: sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=}
     engines: {node: '>= 8'}
@@ -5735,6 +5932,19 @@ packages:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
     dev: true
+
+  /xml2js@0.5.0:
+    resolution: {integrity: sha512-drPFnkQJik/O+uPKpqSgr22mpuFHqKdbS835iAQrUC73L2F5WkboIRd63ai/2Yg6I1jzifPFKH2NTK+cfglkIA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/xml2js/-/xml2js-0.5.0.tgz}
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      sax: 1.4.1
+      xmlbuilder: 11.0.1
+    dev: false
+
+  /xmlbuilder@11.0.1:
+    resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/xmlbuilder/-/xmlbuilder-11.0.1.tgz}
+    engines: {node: '>=4.0'}
+    dev: false
 
   /xtend@4.0.2:
     resolution: {integrity: sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q=}
