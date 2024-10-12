@@ -8,6 +8,7 @@ import { UnloginFilter } from './unlogin.filter';
 import { CustomExceptionFilter } from './custom-exception.filter';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
@@ -42,6 +43,7 @@ async function bootstrap() {
   SwaggerModule.setup('api-doc', app, document);
 
   const configservice = app.get(ConfigService);
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   await app.listen(configservice.get('nest_server_port'));
 }
 bootstrap();
