@@ -20,6 +20,9 @@ dependencies:
   '@nestjs/mapped-types':
     specifier: '*'
     version: 0.0.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)
+  '@nestjs/passport':
+    specifier: ^10.0.3
+    version: 10.0.3(@nestjs/common@10.0.0)(passport@0.7.0)
   '@nestjs/platform-express':
     specifier: ^10.0.0
     version: 10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
@@ -32,12 +35,18 @@ dependencies:
   '@types/multer':
     specifier: ^1.4.12
     version: 1.4.12
+  '@types/passport-google-oauth20':
+    specifier: ^2.0.16
+    version: 2.0.16
   class-transformer:
     specifier: ^0.5.1
     version: 0.5.1
   class-validator:
     specifier: ^0.14.1
     version: 0.14.1
+  cookie-parser:
+    specifier: ^1.4.7
+    version: 1.4.7
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
@@ -50,6 +59,15 @@ dependencies:
   nodemailer:
     specifier: ^6.9.14
     version: 6.9.14
+  passport:
+    specifier: ^0.7.0
+    version: 0.7.0
+  passport-google-oauth20:
+    specifier: ^2.0.0
+    version: 2.0.0
+  passport-local:
+    specifier: ^1.0.0
+    version: 1.0.0
   redis:
     specifier: ^4.7.0
     version: 4.7.0
@@ -59,6 +77,9 @@ dependencies:
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
+  socks-proxy-agent:
+    specifier: ^8.0.4
+    version: 8.0.4
   typeorm:
     specifier: ^0.3.20
     version: 0.3.20(mysql2@3.11.0)(redis@4.7.0)(ts-node@10.9.1)
@@ -73,6 +94,9 @@ devDependencies:
   '@nestjs/testing':
     specifier: ^10.0.0
     version: 10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)(@nestjs/platform-express@10.0.0)
+  '@types/cookie-parser':
+    specifier: ^1.4.7
+    version: 1.4.7
   '@types/express':
     specifier: ^4.17.17
     version: 4.17.17
@@ -82,6 +106,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.3.1
     version: 20.3.1
+  '@types/passport-local':
+    specifier: ^1.0.38
+    version: 1.0.38
   '@types/supertest':
     specifier: ^2.0.12
     version: 2.0.12
@@ -1027,6 +1054,16 @@ packages:
       reflect-metadata: 0.1.13
     dev: false
 
+  /@nestjs/passport@10.0.3(@nestjs/common@10.0.0)(passport@0.7.0):
+    resolution: {integrity: sha512-znJ9Y4S8ZDVY+j4doWAJ8EuuVO7SkQN3yOBmzxbGaXbvcSwFDAdGJ+OMCg52NdzIO4tQoN4pYKx8W6M0ArfFRQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@nestjs/passport/-/passport-10.0.3.tgz}
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      passport: ^0.4.0 || ^0.5.0 || ^0.6.0 || ^0.7.0
+    dependencies:
+      '@nestjs/common': 10.0.0(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      passport: 0.7.0
+    dev: false
+
   /@nestjs/platform-express@10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
     resolution: {integrity: sha1-IXjynlBhzz+mtZC6S1JYN8Pk7iM=}
     peerDependencies:
@@ -1289,6 +1326,12 @@ packages:
     dependencies:
       '@types/node': 20.3.1
 
+  /@types/cookie-parser@1.4.7:
+    resolution: {integrity: sha512-Fvuyi354Z+uayxzIGCwYTayFKocfV7TuDYZClCdIP9ckhvAu/ixDtCB6qx2TT0FKjPLf1f3P/J1rgf6lPs64mw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/cookie-parser/-/cookie-parser-1.4.7.tgz}
+    dependencies:
+      '@types/express': 4.17.17
+    dev: true
+
   /@types/cookiejar@2.1.5:
     resolution: {integrity: sha1-FKPoP6ZBvrFpot2EItkcPDRamng=}
     dev: true
@@ -1385,9 +1428,51 @@ packages:
   /@types/node@20.3.1:
     resolution: {integrity: sha1-6Kg/Gqi2STd7sftde6xcuQ54Tf4=}
 
+  /@types/oauth@0.9.6:
+    resolution: {integrity: sha512-H9TRCVKBNOhZZmyHLqFt9drPM9l+ShWiqqJijU1B8P3DX3ub84NjxDuy+Hjrz+fEca5Kwip3qPMKNyiLgNJtIA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/oauth/-/oauth-0.9.6.tgz}
+    dependencies:
+      '@types/node': 20.3.1
+    dev: false
+
   /@types/parse-json@4.0.2:
     resolution: {integrity: sha1-WVDlCWB5MFWEXpVsQn/CsNcMUjk=}
     dev: true
+
+  /@types/passport-google-oauth20@2.0.16:
+    resolution: {integrity: sha512-ayXK2CJ7uVieqhYOc6k/pIr5pcQxOLB6kBev+QUGS7oEZeTgIs1odDobXRqgfBPvXzl0wXCQHftV5220czZCPA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/passport-google-oauth20/-/passport-google-oauth20-2.0.16.tgz}
+    dependencies:
+      '@types/express': 4.17.17
+      '@types/passport': 1.0.16
+      '@types/passport-oauth2': 1.4.17
+    dev: false
+
+  /@types/passport-local@1.0.38:
+    resolution: {integrity: sha512-nsrW4A963lYE7lNTv9cr5WmiUD1ibYJvWrpE13oxApFsRt77b0RdtZvKbCdNIY4v/QZ6TRQWaDDEwV1kCTmcXg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/passport-local/-/passport-local-1.0.38.tgz}
+    dependencies:
+      '@types/express': 4.17.17
+      '@types/passport': 1.0.16
+      '@types/passport-strategy': 0.2.38
+    dev: true
+
+  /@types/passport-oauth2@1.4.17:
+    resolution: {integrity: sha512-ODiAHvso6JcWJ6ZkHHroVp05EHGhqQN533PtFNBkg8Fy5mERDqsr030AX81M0D69ZcaMvhF92SRckEk2B0HYYg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/passport-oauth2/-/passport-oauth2-1.4.17.tgz}
+    dependencies:
+      '@types/express': 4.17.17
+      '@types/oauth': 0.9.6
+      '@types/passport': 1.0.16
+    dev: false
+
+  /@types/passport-strategy@0.2.38:
+    resolution: {integrity: sha512-GC6eMqqojOooq993Tmnmp7AUTbbQSgilyvpCYQjT+H6JfG/g6RGc7nXEniZlp0zyKJ0WUdOiZWLBZft9Yug1uA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/passport-strategy/-/passport-strategy-0.2.38.tgz}
+    dependencies:
+      '@types/express': 4.17.17
+      '@types/passport': 1.0.16
+    dev: true
+
+  /@types/passport@1.0.16:
+    resolution: {integrity: sha512-FD0qD5hbPWQzaM0wHUnJ/T0BBCJBxCeemtnCwc/ThhTg3x9jfrAcRUmj5Dopza+MfFS9acTe3wk7rcVnRIp/0A==, tarball: https://reg.yingzhongtong.com/repository/npm_public/@types/passport/-/passport-1.0.16.tgz}
+    dependencies:
+      '@types/express': 4.17.17
 
   /@types/qs@6.9.15:
     resolution: {integrity: sha1-rd6KBg7JwwWoLeG6vBBW5zvWTc4=}
@@ -1740,6 +1825,15 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  /agent-base@7.1.1:
+    resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/agent-base/-/agent-base-7.1.1.tgz}
+    engines: {node: '>= 14'}
+    dependencies:
+      debug: 4.3.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /ajv-formats@2.1.1(ajv@8.12.0):
     resolution: {integrity: sha1-bmaUAGWet0lzu/LjMycYCgmWtSA=}
     peerDependencies:
@@ -1969,6 +2063,11 @@ packages:
 
   /base64-js@1.5.1:
     resolution: {integrity: sha1-GxtEAWClv3rUC2UPCVljSBkDkwo=}
+
+  /base64url@3.0.1:
+    resolution: {integrity: sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==, tarball: https://reg.yingzhongtong.com/repository/npm_public/base64url/-/base64url-3.0.1.tgz}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /binary-extensions@2.3.0:
     resolution: {integrity: sha1-9uFKl4WNMnJSIAJC1Mz+UixEVSI=}
@@ -2357,12 +2456,25 @@ packages:
     resolution: {integrity: sha1-S1YPZJ/E6RjdCrdc9JYei8iC2Co=}
     dev: true
 
+  /cookie-parser@1.4.7:
+    resolution: {integrity: sha512-nGUvgXnotP3BsjiLX2ypbQnWoGUPIIfHQNZkkC668ntrzGWEZVW70HDEB1qnNGMicPje6EttlIgzo51YSwNQGw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/cookie-parser/-/cookie-parser-1.4.7.tgz}
+    engines: {node: '>= 0.8.0'}
+    dependencies:
+      cookie: 0.7.2
+      cookie-signature: 1.0.6
+    dev: false
+
   /cookie-signature@1.0.6:
     resolution: {integrity: sha1-4wOogrNCzD7oylE6eZmXNNqzriw=}
 
   /cookie@0.5.0:
     resolution: {integrity: sha1-0fXXGt7GVYxY84mYfDZqpH6ZT4s=}
     engines: {node: '>= 0.6'}
+
+  /cookie@0.7.2:
+    resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==, tarball: https://reg.yingzhongtong.com/repository/npm_public/cookie/-/cookie-0.7.2.tgz}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /cookiejar@2.1.4:
     resolution: {integrity: sha1-7macH+os9C3DFYVGnRk/7w1ldxs=}
@@ -3405,6 +3517,14 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
+  /ip-address@9.0.5:
+    resolution: {integrity: sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==, tarball: https://reg.yingzhongtong.com/repository/npm_public/ip-address/-/ip-address-9.0.5.tgz}
+    engines: {node: '>= 12'}
+    dependencies:
+      jsbn: 1.1.0
+      sprintf-js: 1.1.3
+    dev: false
+
   /ipaddr.js@1.9.1:
     resolution: {integrity: sha1-v/OFQ+64mEglB5/zoqjmy9RngbM=}
     engines: {node: '>= 0.10'}
@@ -4024,6 +4144,10 @@ packages:
     dependencies:
       argparse: 2.0.1
 
+  /jsbn@1.1.0:
+    resolution: {integrity: sha1-sBMHyym2GKHtJux56RH4A8TaAEA=, tarball: https://reg.yingzhongtong.com:443/artifactory/api/npm/npm_public/jsbn/-/jsbn-1.1.0.tgz}
+    dev: false
+
   /jsesc@2.5.2:
     resolution: {integrity: sha1-gFZNLkg9rPbo7yCWUKZ98/DCg6Q=}
     engines: {node: '>=4'}
@@ -4489,6 +4613,10 @@ packages:
       path-key: 3.1.1
     dev: true
 
+  /oauth@0.10.0:
+    resolution: {integrity: sha512-1orQ9MT1vHFGQxhuy7E/0gECD3fd2fCC+PIX+/jgmU/gI3EpRocXtmtvxCO5x3WZ443FLTLFWNDjl5MPJf9u+Q==, tarball: https://reg.yingzhongtong.com/repository/npm_public/oauth/-/oauth-0.10.0.tgz}
+    dev: false
+
   /object-assign@4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
@@ -4628,6 +4756,45 @@ packages:
     resolution: {integrity: sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=}
     engines: {node: '>= 0.8'}
 
+  /passport-google-oauth20@2.0.0:
+    resolution: {integrity: sha512-KSk6IJ15RoxuGq7D1UKK/8qKhNfzbLeLrG3gkLZ7p4A6DBCcv7xpyQwuXtWdpyR0+E0mwkpjY1VfPOhxQrKzdQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/passport-google-oauth20/-/passport-google-oauth20-2.0.0.tgz}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-oauth2: 1.8.0
+    dev: false
+
+  /passport-local@1.0.0:
+    resolution: {integrity: sha512-9wCE6qKznvf9mQYYbgJ3sVOHmCWoUNMVFoZzNoznmISbhnNNPhN9xfY3sLmScHMetEJeoY7CXwfhCe7argfQow==, tarball: https://reg.yingzhongtong.com/repository/npm_public/passport-local/-/passport-local-1.0.0.tgz}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-strategy: 1.0.0
+    dev: false
+
+  /passport-oauth2@1.8.0:
+    resolution: {integrity: sha512-cjsQbOrXIDE4P8nNb3FQRCCmJJ/utnFKEz2NX209f7KOHPoX18gF7gBzBbLLsj2/je4KrgiwLLGjf0lm9rtTBA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/passport-oauth2/-/passport-oauth2-1.8.0.tgz}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      base64url: 3.0.1
+      oauth: 0.10.0
+      passport-strategy: 1.0.0
+      uid2: 0.0.4
+      utils-merge: 1.0.1
+    dev: false
+
+  /passport-strategy@1.0.0:
+    resolution: {integrity: sha512-CB97UUvDKJde2V0KDWWB3lyf6PC3FaZP7YxZ2G8OAtn9p4HI9j9JLP9qjOGZFvyl8uwNT8qM+hGnz/n16NI7oA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/passport-strategy/-/passport-strategy-1.0.0.tgz}
+    engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /passport@0.7.0:
+    resolution: {integrity: sha512-cPLl+qZpSc+ireUvt+IzqbED1cHHkDoVYMo30jbJIdOOjQ1MQYZBPiNvmi8UM6lJuOpTPXJGZQk0DtC4y61MYQ==, tarball: https://reg.yingzhongtong.com/repository/npm_public/passport/-/passport-0.7.0.tgz}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
+      utils-merge: 1.0.1
+    dev: false
+
   /path-exists@4.0.0:
     resolution: {integrity: sha1-UTvb4tO5XXdi6METfvoZXGxhtbM=}
     engines: {node: '>=8'}
@@ -4663,6 +4830,10 @@ packages:
     resolution: {integrity: sha1-hO0BwKe6OAr+CdkKjBgNzZ0DBDs=}
     engines: {node: '>=8'}
     dev: true
+
+  /pause@0.0.1:
+    resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/pause/-/pause-0.0.1.tgz}
+    dev: false
 
   /picocolors@1.0.1:
     resolution: {integrity: sha1-qK1Xm1cZUvDl0liS3lRFvP4lqqE=}
@@ -5098,6 +5269,30 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /smart-buffer@4.2.0:
+    resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==, tarball: https://reg.yingzhongtong.com/repository/npm_public/smart-buffer/-/smart-buffer-4.2.0.tgz}
+    engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
+    dev: false
+
+  /socks-proxy-agent@8.0.4:
+    resolution: {integrity: sha512-GNAq/eg8Udq2x0eNiFkr9gRg5bA7PXEWagQdeRX4cPSG+X/8V38v637gim9bjFptMk1QWsCTr0ttrJEiXbNnRw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/socks-proxy-agent/-/socks-proxy-agent-8.0.4.tgz}
+    engines: {node: '>= 14'}
+    dependencies:
+      agent-base: 7.1.1
+      debug: 4.3.6
+      socks: 2.8.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /socks@2.8.3:
+    resolution: {integrity: sha512-l5x7VUUWbjVFbafGLxPWkYsHIhEvmF85tbIeFZWc8ZPtoMyybuEhL7Jye/ooC4/d48FgOjSJXgsF/AJPYCW8Zw==, tarball: https://reg.yingzhongtong.com/repository/npm_public/socks/-/socks-2.8.3.tgz}
+    engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
+    dependencies:
+      ip-address: 9.0.5
+      smart-buffer: 4.2.0
+    dev: false
+
   /source-map-support@0.5.13:
     resolution: {integrity: sha1-MbJKnC5zwt6FBmwP631Edn7VKTI=}
     dependencies:
@@ -5130,6 +5325,10 @@ packages:
   /sprintf-js@1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
+
+  /sprintf-js@1.1.3:
+    resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/sprintf-js/-/sprintf-js-1.1.3.tgz}
+    dev: false
 
   /sqlstring@2.3.3:
     resolution: {integrity: sha1-Ldwh8DvOLDh+1gaA5zmSLGV1HQw=}
@@ -5673,6 +5872,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  /uid2@0.0.4:
+    resolution: {integrity: sha512-IevTus0SbGwQzYh3+fRsAMTVVPOoIVufzacXcHPmdlle1jUpq7BRL+mw3dgeLanvGZdwwbWhRV6XrcFNdBmjWA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/uid2/-/uid2-0.0.4.tgz}
+    dev: false
+
   /uid@2.0.2:
     resolution: {integrity: sha1-S1eCq/Dy/u78APqIAGsrO3rz47k=}
     engines: {node: '>=8'}
@@ -5719,7 +5922,7 @@ packages:
     dev: false
 
   /utils-merge@1.0.1:
-    resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
+    resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==, tarball: https://reg.yingzhongtong.com/repository/npm_public/utils-merge/-/utils-merge-1.0.1.tgz}
     engines: {node: '>= 0.4.0'}
 
   /uuid@9.0.1:

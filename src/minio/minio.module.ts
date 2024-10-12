@@ -11,7 +11,7 @@ import * as Minio from 'minio';
       async useFactory(configService: ConfigService) {
         const client = new Minio.Client({
           endPoint: configService.get('minio_endpoint'),
-          port: configService.get('minio_port'),
+          port: +configService.get('minio_port'),
           useSSL: false,
           accessKey: configService.get('minio_access_key'),
           secretKey: configService.get('minio_secret_key'),

@@ -8,8 +8,11 @@ import {
   Inject,
   Post,
   Query,
+  Req,
+  Res,
   UnauthorizedException,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { UserService } from './user.service';
@@ -30,6 +33,8 @@ import { RefreshTokenVo } from './vo/refresh-token.vo';
 import { FileInterceptor } from '@nestjs/platform-express';
 import * as path from 'path';
 import { storage } from 'src/my-file-storage';
+import { AuthGuard } from '@nestjs/passport';
+import { Response } from 'express';
 
 interface captchaParams {
   prefix: string;
@@ -283,9 +288,33 @@ export class UserController {
     description: '用户信息和 token',
     type: LoginUserVo,
   })
+  @UseGuards(AuthGuard('local'))
   @Post('login')
-  async userLogin(@Body() loginUser: LoginUserDto) {
-    return await this.login(loginUser, false);
+  async userLogin(@UserInfo() vo: LoginUserVo) {
+    // return await this.login(loginUser, false);
+    vo.accessToken = this.jwtService.sign(
+      {
+        userId: vo.userInfo.id,
+        username: vo.userInfo.username,
+        roles: vo.userInfo.roles,
+        email: vo.userInfo.email,
+        permissions: vo.userInfo.permissions,
+      },
+      {
+        expiresIn: this.configService.get('jwt_access_token_expires_time') || '30m',
+      },
+    );
+
+    vo.refreshToken = this.jwtService.sign(
+      {
+        userId: vo.userInfo.id,
+      },
+      {
+        expiresIn: this.configService.get('jwt_refresh_token_expres_time') || '7d',
+      },
+    );
+
+    return vo;
   }
 
   @Post('admin/login')
@@ -325,5 +354,119 @@ export class UserController {
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     console.log('filefilefilefile', file);
     return file.path;
+  }
+
+  @Get('google')
+  @UseGuards(AuthGuard('google'))
+  async googleAuth() {}
+  @Get('callback/google')
+  @UseGuards(AuthGuard('google'))
+  async googleAuthRedirect(@Req() req, @Res() res: Response) {
+    if (!req.user) {
+      throw new BadRequestException('google 登录失败');
+    }
+
+    // google登录报错问题 这里解决
+    // https://github.com/jaredhanson/passport-google-oauth2/issues/64
+
+    const foundUser = await this.userService.findUserByEmail(req.user.email);
+
+    if (foundUser) {
+      const vo = new LoginUserVo();
+      vo.userInfo = {
+        id: foundUser.id,
+        username: foundUser.username,
+        nickName: foundUser.nickName,
+        email: foundUser.email,
+        phoneNumber: foundUser.phoneNumber,
+        headPic: foundUser.headPic,
+        createTime: foundUser.createTime.getTime(),
+        isFrozen: foundUser.isFrozen,
+        isAdmin: foundUser.isAdmin,
+        roles: foundUser.roles.map((item) => item.name),
+        permissions: foundUser.roles.reduce((arr, item) => {
+          item.permissions.forEach((permission) => {
+            if (arr.indexOf(permission) === -1) {
+              arr.push(permission);
+            }
+          });
+          return arr;
+        }, []),
+      };
+      vo.accessToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+          username: vo.userInfo.username,
+          email: vo.userInfo.email,
+          roles: vo.userInfo.roles,
+          permissions: vo.userInfo.permissions,
+        },
+        {
+          expiresIn: this.configService.get('jwt_access_token_expires_time') || '30m',
+        },
+      );
+
+      vo.refreshToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+        },
+        {
+          expiresIn: this.configService.get('jwt_refresh_token_expres_time') || '7d',
+        },
+      );
+
+      res.cookie('userInfo', JSON.stringify(vo.userInfo));
+      res.cookie('accessToken', vo.accessToken);
+      res.cookie('refreshToken', vo.refreshToken);
+    } else {
+      const user = await this.userService.registerByGoogleInfo(
+        req.user.email,
+        req.user.firstName + ' ' + req.user.lastName,
+        req.user.picture,
+      );
+
+      const vo = new LoginUserVo();
+      vo.userInfo = {
+        id: user.id,
+        username: user.username,
+        nickName: user.nickName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        headPic: user.headPic,
+        createTime: user.createTime.getTime(),
+        isFrozen: user.isFrozen,
+        isAdmin: user.isAdmin,
+        roles: [],
+        permissions: [],
+      };
+
+      vo.accessToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+          username: vo.userInfo.username,
+          email: vo.userInfo.email,
+          roles: vo.userInfo.roles,
+          permissions: vo.userInfo.permissions,
+        },
+        {
+          expiresIn: this.configService.get('jwt_access_token_expires_time') || '30m',
+        },
+      );
+
+      vo.refreshToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+        },
+        {
+          expiresIn: this.configService.get('jwt_refresh_token_expres_time') || '7d',
+        },
+      );
+
+      res.cookie('userInfo', JSON.stringify(vo.userInfo));
+      res.cookie('accessToken', vo.accessToken);
+      res.cookie('refreshToken', vo.refreshToken);
+    }
+
+    res.redirect('http://localhost:4000');
   }
 }
