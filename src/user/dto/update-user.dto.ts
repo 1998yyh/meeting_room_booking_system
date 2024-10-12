@@ -1,23 +1,4 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { PickType } from '@nestjs/swagger';
+import { RegisterUserDto } from './registre-user.dto';
 
-export class UpdateUserDto {
-  headPic: string;
-
-  nickName: string;
-
-  @IsNotEmpty({
-    message: '邮箱不能为空',
-  })
-  @IsEmail(
-    {},
-    {
-      message: '不是合法的邮箱格式',
-    },
-  )
-  email: string;
-
-  @IsNotEmpty({
-    message: '验证码不能为空',
-  })
-  captcha: string;
-}
+export class UpdateUserDto extends PickType(RegisterUserDto, ['captcha', 'email', 'nickName', 'password']) {}
