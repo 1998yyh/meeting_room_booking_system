@@ -275,6 +275,22 @@ export class UserController {
     return await this.userService.register(registerUser);
   }
 
+  @ApiBody({ type: RegisterUserDto })
+  @ApiResponse({
+    status: HttpStatus.BAD_REQUEST,
+    description: '验证码已失效/验证码不正确/用户已存在',
+    type: String,
+  })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: '注册成功/失败',
+    type: String,
+  })
+  @Post('registerAdmin')
+  async registerAdmin(@Body() registerUser: RegisterUserDto) {
+    return await this.userService.registerAdmin(registerUser);
+  }
+
   @ApiBody({
     type: LoginUserDto,
   })
